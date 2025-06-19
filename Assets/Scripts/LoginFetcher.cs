@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEditor;
 
 public class LoginFetcher : MonoBehaviour
 {
@@ -215,7 +216,6 @@ public class LoginFetcher : MonoBehaviour
 
 // ✅ EDITOR PERSONALIZADO PARA FACILITAR TESTING
 #if UNITY_EDITOR
-using UnityEditor;
 
 [CustomEditor(typeof(LoginFetcher))]
 public class LoginFetcherEditor : Editor
