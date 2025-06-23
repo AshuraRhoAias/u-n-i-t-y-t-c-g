@@ -1,64 +1,67 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Tipos de filtro disponibles para MultiAttacks.
-/// </summary>
-public enum MultiAttackFilterType
+namespace WaifuSummoner.Effects
 {
-    SummonCondition,
-    Role,
-    Element,
-    Reign
-}
+    /// <summary>
+    /// Tipos de filtro disponibles para MultiAttacks.
+    /// </summary>
+    public enum MultiAttackFilterType
+    {
+        SummonCondition,
+        Role,
+        Element,
+        Reign
+    }
 
-/// <summary>
-/// Datos de un único filtro de MultiAttacks.
-/// </summary>
-[Serializable]
-public class MultiAttackFilterData
-{
-    public MultiAttackFilterType filterType;
-    public SummonCondition summonCondition;
-    public Role roleFilter;
-    public ElementType elementFilter;
-    public Realm reignFilter;
-}
+    /// <summary>
+    /// Datos de un Ãºnico filtro de MultiAttacks.
+    /// </summary>
+    [Serializable]
+    public class MultiAttackFilterData
+    {
+        public MultiAttackFilterType filterType;
+        public SummonCondition summonCondition;
+        public Role roleFilter;
+        public ElementType elementFilter;
+        public Realm reignFilter;
+    }
 
-/// <summary>
-/// Datos para el efecto "Multi Attacks", con filtros dinámicos.
-/// </summary>
-[Serializable]
-public class MultiAttacksEffectData
-{
-    /// <summary>1) Cómo seleccionamos el objetivo (None/All/Select/Random/Situational/Self)</summary>
-    public Target target = Target.None;
+    /// <summary>
+    /// Datos para el efecto "Multi Attacks", con flujo condicional y filtros dinÃ¡micos.
+    /// </summary>
+    [Serializable]
+    public class MultiAttacksEffectData
+    {
+        /// <summary>1) CÃ³mo elegimos el objetivo (None/All/Select/Random/Situational)</summary>
+        public Target target = Target.None;
 
-    /// <summary>2) De qué lado elegimos</summary>
-    public TargetSide targetSide = TargetSide.Both;
+        /// <summary>2) Cantidad (solo para Select/Random/Situational; siempre â‰¥1)</summary>
+        public int amount = 1;
 
-    /// <summary>3) Tipo de ataque múltiple</summary>
-    public MultiAttackTypes multiAttackType = MultiAttackTypes.None;
+        /// <summary>3) Extras si target == Situational</summary>
+        public HighLowOption highLow;
+        public StatType statType;
+        public TieBreaker tieBreaker;
 
-    /// <summary>4) Cantidad (solo para ciertos tipos de ataque múltiple)</summary>
-    public int amount = 1;
+        /// <summary>4) De quÃ© lado elegimos</summary>
+        public TargetSide targetSide = TargetSide.Both;
 
-    /// <summary>5) Extras si target == Situational</summary>
-    public HighLowOption highLow;
-    public WaifuStats situationalStat;
-    public TieBreaker tieBreaker;
+        /// <summary>5) NÃºmero de ataques adicionales</summary>
+        public int additionalAttacks = 1;
 
-    /// <summary>6) Duración del efecto</summary>
-    public Duration duration = Duration.None;
+        /// <summary>6) DuraciÃ³n del efecto</summary>
+        public Duration duration = Duration.None;
 
-    /// <summary>7) Etapa objetivo para UntilTheNext</summary>
-    public Stages untilStage = Stages.None;
+        /// <summary>7) Para UntilTheNext: etapa objetivo</summary>
+        public Stages untilStage = Stages.None;
 
-    /// <summary>8) Número de turnos</summary>
-    public int durationTurns = 1;
+        /// <summary>8) Para ForNumberTurns / ForNumberOfYourTurns: cuÃ¡ntos turnos</summary>
+        public int durationTurns = 1;
 
-    /// <summary>9) Filtros dinámicos</summary>
-    [SerializeField]
-    public List<MultiAttackFilterData> filters = new List<MultiAttackFilterData>();
+        /// <summary>9) Filtros dinÃ¡micos</summary>
+        [SerializeField]
+        public List<MultiAttackFilterData> filters = new List<MultiAttackFilterData>();
+    }
 }

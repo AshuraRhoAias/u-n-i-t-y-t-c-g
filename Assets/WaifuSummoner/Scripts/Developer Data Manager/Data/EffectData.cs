@@ -1,68 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/EffectData.cs
+using System;
 
-[Serializable]
-public class EffectData
+namespace WaifuSummoner.Effects
 {
-    // 1) La lista de triggers que usa el editor
-    public List<Trigger> triggers = new List<Trigger>();
+    /// <summary>
+    /// Tipos de filtro genéricos que pueden ser usados por diferentes efectos
+    /// </summary>
+    public enum EffectFilterType
+    {
+        SummonCondition,
+        Role,
+        Element,
+        Reign
+    }
 
-    // 2) El tipo de efecto que elige el usuario
-    public EffectType effectType;
+    /// <summary>
+    /// Clase genérica de filtro que puede ser reutilizada por diferentes efectos
+    /// </summary>
+    [Serializable]
+    public class EffectFilterData
+    {
+        public EffectFilterType filterType;
+        public SummonCondition summonCondition;
+        public Role roleFilter;
+        public ElementType elementFilter;
+        public Realm reignFilter;
+    }
 
-    // 3) La descripción que aparece debajo de cada drawer
-    [TextArea(3, 5)]
-    public string effectDescription;
+    /// <summary>
+    /// Clase base para todos los datos de efectos
+    /// </summary>
+    [Serializable]
+    public abstract class EffectData
+    {
+        /// <summary>Tipo de efecto</summary>
+        public EffectType effectType;
 
-    // 4) Aquí van tus datos concretos, con el mismo nombre que pasan al atributo
-    [EffectDataField(EffectType.Defeat)]
-    public DefeatEffectData defeatEffect;
+        /// <summary>Si el efecto está activo</summary>
+        public bool isActive = true;
 
-    [EffectDataField(EffectType.SendWaifu)]
-    public SendWaifuEffectData sendWaifuEffect;
-
-    [EffectDataField(EffectType.SendHand)]
-    public SendHandEffectData sendHandEffect;
-
-    [EffectDataField(EffectType.HealBurn)]
-    public HealBurnEffectData healBurnEffect;
-
-    [EffectDataField(EffectType.ModifyStats)]
-    public ModifyStatsEffectData modifyStatsEffect;
-
-    [EffectDataField(EffectType.EnchantSummon)]
-    public EnchantSummonEffectData enchantSummonEffect;
-
-    [EffectDataField(EffectType.DrawSearch)]
-    public DrawSearchEffectData drawSearchEffect;
-
-    [EffectDataField(EffectType.Stun)]
-    public StunEffectData stunEffect;
-
-    [EffectDataField(EffectType.Control)]
-    public ControlEffectData controlEffect;
-
-    [EffectDataField(EffectType.NegateEffect)]
-    public NegateEffectData negateEffect;
-
-    [EffectDataField(EffectType.MultiAttacks)]
-    public MultiAttacksEffectData multiAttacksEffect;
-
-
-    [EffectDataField(EffectType.ChangePosition)]
-    public ChangePositionEffectData changePositionEffect;
-
-    [EffectDataField(EffectType.Protection)]
-    public ProtectionEffectData protectionEffect;
-
-    [EffectDataField(EffectType.Recycle)]
-    public RecycleEffectData recycleEffect;
-
-    [EffectDataField(EffectType.SummonAid)]
-    public SummonAidEffectData summonAidEffect;
-
-    [EffectDataField(EffectType.DestroySend)]
-    public DestroySendEffectData destroySendEffect;
-
+        /// <summary>ID único del efecto</summary>
+        public string effectId;
+    }
 }

@@ -1,53 +1,30 @@
+// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/Efectos/RecycleEffectData.cs
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 
-[Serializable]
-public class RecycleEffectData
+namespace WaifuSummoner.Effects
 {
-    public enum RecycleFilterType
-    {
-        CardType,
-        Reign,
-        Role,
-        Element
-    }
-
     [Serializable]
-    public class RecycleFilter
+    public class RecycleEffectData
     {
-        public RecycleFilterType filterType;
-        public CardType cardType;
-        public Realm reignFilter;
-        public Role roleFilter;
-        public ElementType elementFilter;
+        /// <summary>Tipo de carta a reciclar</summary>
+        public CardType cardType = CardType.Waifu;
+
+        /// <summary>Cómo seleccionar las cartas</summary>
+        public Target target = Target.None;
+
+        /// <summary>De qué lado reciclar</summary>
+        public TargetSide targetSide = TargetSide.User;
+
+        /// <summary>Cantidad de cartas a reciclar</summary>
+        public int amount = 1;
+
+        /// <summary>Desde qué ubicación reciclar</summary>
+        public Location fromLocation = Location.UserVoid;
+
+        /// <summary>Hacia qué ubicación enviar</summary>
+        public Location toLocation = Location.UserDeck;
+
+        /// <summary>Si se baraja el mazo después del reciclaje</summary>
+        public bool shuffleAfter = true;
     }
-
-    // 1) Qué reciclar del Void Zone
-    public Target recycleTarget = Target.None;
-    public int recycleAmount = 1;
-    public Location recycleToLocation = Location.ShuffleToDeck;
-
-    // 2) Filtros para lo que reciclas
-    [SerializeField]
-    public List<RecycleFilter> recycleFilters = new List<RecycleFilter>();
-
-    // 3) Situational para reciclar
-    public HighLowOption recycleHighLow;
-    public StatType recycleStat;
-    public TieBreaker recycleTieBreaker;
-
-    // 4) Qué robar después
-    public Target drawTarget = Target.None;
-    public int drawAmount = 1;
-    public Location drawFromLocation = Location.UserDeck;
-
-    // 5) Filtros para lo que robas
-    [SerializeField]
-    public List<RecycleFilter> drawFilters = new List<RecycleFilter>();
-
-    // 6) Situational para robar
-    public HighLowOption drawHighLow;
-    public StatType drawStat;
-    public TieBreaker drawTieBreaker;
 }
