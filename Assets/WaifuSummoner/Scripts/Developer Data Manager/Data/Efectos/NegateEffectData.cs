@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
-/// Qué puede filtrar el NegateEffect.
+/// Tipos de filtro disponibles para Negate.
 /// </summary>
 public enum NegateFilterType
 {
@@ -15,7 +14,7 @@ public enum NegateFilterType
 }
 
 /// <summary>
-/// Un único filtro para NegateEffect.
+/// Datos de un único filtro de Negate.
 /// </summary>
 [Serializable]
 public class NegateFilterData
@@ -28,38 +27,38 @@ public class NegateFilterData
 }
 
 /// <summary>
-/// Datos para el efecto “Negate”:
-///  0) Dónde aplica (FieldCardType)
-///  1) Cómo seleccionamos el objetivo (Target)
-///  2) Cantidad (solo Select/Random/Situational)
-///  3) Si Situational: Highest/Lowest + Stat a comparar
-///  4) De qué lado (TargetSide)
-///  5) Duración (Duration + hasta etapa / turns)
-///  6) Filtros dinámicos
+/// Datos para el efecto "Negate Effect", con filtros dinámicos.
 /// </summary>
 [Serializable]
 public class NegateEffectData
 {
-    // 0) Primera selección
+    /// <summary>1) Tipo de carta en el campo</summary>
     public FieldCardType fieldCardType = FieldCardType.Any;
 
-    // 1)
+    /// <summary>2) Cómo seleccionamos el objetivo</summary>
     public Target target = Target.None;
+
+    /// <summary>3) Cantidad (solo para Select/Random/Situational)</summary>
     public int amount = 1;
 
-    // 2) Situational extras
+    /// <summary>4) Extras si target == Situational</summary>
     public HighLowOption highLow;
     public StatType statType;
+    public TieBreaker tieBreaker;
 
-    // 3)
+    /// <summary>5) De qué lado elegimos</summary>
     public TargetSide targetSide = TargetSide.Both;
 
-    // 4) Duración
+    /// <summary>6) Duración del efecto</summary>
     public Duration duration = Duration.None;
+
+    /// <summary>7) Etapa objetivo para UntilTheNext</summary>
     public Stages untilStage = Stages.None;
+
+    /// <summary>8) Número de turnos</summary>
     public int durationTurns = 1;
 
-    // 5) Filtros dinámicos
+    /// <summary>9) Filtros dinámicos</summary>
     [SerializeField]
     public List<NegateFilterData> filters = new List<NegateFilterData>();
 }

@@ -1,4 +1,4 @@
-﻿// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/DrawSearchEffectData.cs
+﻿// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/Efectos/DrawSearchEffectData.cs
 using System;
 using UnityEngine;
 

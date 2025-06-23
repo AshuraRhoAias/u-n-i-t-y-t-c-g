@@ -1,4 +1,3 @@
-// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/RecycleEffectData.cs
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +5,6 @@ using UnityEngine;
 [Serializable]
 public class RecycleEffectData
 {
-    public Location sourceLocation = Location.None;
-    public RecycleNumber recycleNumber = RecycleNumber.None;
-    public int recycleAmount = 1;
-
-    // --- filtros sobre lo reciclado ---
     public enum RecycleFilterType
     {
         CardType,
@@ -20,7 +14,7 @@ public class RecycleEffectData
     }
 
     [Serializable]
-    public class RecycleFilterData
+    public class RecycleFilter
     {
         public RecycleFilterType filterType;
         public CardType cardType;
@@ -29,27 +23,31 @@ public class RecycleEffectData
         public ElementType elementFilter;
     }
 
-    [SerializeField]
-    public List<RecycleFilterData> recycleFilters = new List<RecycleFilterData>();
+    // 1) Qué reciclar del Void Zone
+    public Target recycleTarget = Target.None;
+    public int recycleAmount = 1;
+    public Location recycleToLocation = Location.ShuffleToDeck;
 
-    // --- Después del reciclaje: dibujo ---
-    public Location drawLocation = Location.None;
-    public DrawMode drawMode = DrawMode.SameAsRecycled;
+    // 2) Filtros para lo que reciclas
+    [SerializeField]
+    public List<RecycleFilter> recycleFilters = new List<RecycleFilter>();
+
+    // 3) Situational para reciclar
+    public HighLowOption recycleHighLow;
+    public StatType recycleStat;
+    public TieBreaker recycleTieBreaker;
+
+    // 4) Qué robar después
+    public Target drawTarget = Target.None;
     public int drawAmount = 1;
+    public Location drawFromLocation = Location.UserDeck;
 
+    // 5) Filtros para lo que robas
     [SerializeField]
-    public List<RecycleFilterData> drawFilters = new List<RecycleFilterData>();
+    public List<RecycleFilter> drawFilters = new List<RecycleFilter>();
 
-    public enum DrawMode
-    {
-        SameAsRecycled,
-        FixedAmount
-    }
-
-    public enum RecycleNumber
-    {
-        None,
-        Amount,
-        All
-    }
+    // 6) Situational para robar
+    public HighLowOption drawHighLow;
+    public StatType drawStat;
+    public TieBreaker drawTieBreaker;
 }

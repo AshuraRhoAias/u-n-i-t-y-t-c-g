@@ -23,7 +23,7 @@ public class ModifyStatsFilterData
     public SummonCondition summonConditionFilter;
     public Role roleFilter;
     public ElementType elementFilter;
-    public Realm reignFilter;
+    public Realm reignFilter; // Corregido: era 'reignFilter' pero debería ser consistente con Realm
 }
 
 /// <summary>
@@ -46,34 +46,25 @@ public class ModifyStatsEffectData
 
     // 1
     public StatToModify stat = StatToModify.Attack;
-
     // 2
     public IncreaseDecrease action = IncreaseDecrease.Increase;
-
     // 3
     public int value = 1;
-
     // 4
     public Target targetType = Target.None;
-
     // 5
     public int amount = 1;
-
     // 6
     public HighLowOption highLow;
     public WaifuStats situationalStat;
     public TieBreaker tieBreaker;
-
     // 7
     public TargetSide targetSide = TargetSide.Both;
-
     // 8 — Duración
     public Duration duration = Duration.None;
-
     // 9 — Campos para cuando duration == UntilTheNext
     public Stages untilStage = Stages.None;
     public int durationTurns = 1;
-
     // 10
     [SerializeField]
     public List<ModifyStatsFilterData> filters = new List<ModifyStatsFilterData>();

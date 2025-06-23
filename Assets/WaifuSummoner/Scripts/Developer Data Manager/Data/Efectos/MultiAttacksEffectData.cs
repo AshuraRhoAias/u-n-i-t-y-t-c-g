@@ -2,20 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
-/// Qué puede filtrar el MultiAttacksEffect.
+/// Tipos de filtro disponibles para MultiAttacks.
 /// </summary>
 public enum MultiAttackFilterType
 {
     SummonCondition,
     Role,
     Element,
-    Reign,
+    Reign
 }
 
 /// <summary>
-/// Un único filtro para MultiAttacks.
+/// Datos de un único filtro de MultiAttacks.
 /// </summary>
 [Serializable]
 public class MultiAttackFilterData
@@ -28,41 +27,38 @@ public class MultiAttackFilterData
 }
 
 /// <summary>
-/// Datos para el efecto “Multiple Attacks”:
-///
-///  0) Tipo de multi-ataque (NumberOfTimes/NumberVsWaifus/AllWaifus)
-///  1) Cómo seleccionamos objetivos (Target)
-///  2) Cantidad (solo si NumberOfTimes o NumberVsWaifus)
-///  3) Si Situational: Highest/Lowest + Stat a comparar
-///  4) De qué lado (TargetSide)
-///  5) Duración (Duration + hasta etapa / turns)
-///  6) Filtros dinámicos (SummonCondition/Role/Element/Reign)
+/// Datos para el efecto "Multi Attacks", con filtros dinámicos.
 /// </summary>
 [Serializable]
 public class MultiAttacksEffectData
 {
-    // 0)
-    public MultiAttackTypes multiAttackType = MultiAttackTypes.None;
-
-    // 1)
+    /// <summary>1) Cómo seleccionamos el objetivo (None/All/Select/Random/Situational/Self)</summary>
     public Target target = Target.None;
 
-    // 2)
-    public int amount = 1;
-
-    // 3) Situational extras
-    public HighLowOption highLow;
-    public StatType situationalStat;
-
-    // 4)
+    /// <summary>2) De qué lado elegimos</summary>
     public TargetSide targetSide = TargetSide.Both;
 
-    // 5) Duración
+    /// <summary>3) Tipo de ataque múltiple</summary>
+    public MultiAttackTypes multiAttackType = MultiAttackTypes.None;
+
+    /// <summary>4) Cantidad (solo para ciertos tipos de ataque múltiple)</summary>
+    public int amount = 1;
+
+    /// <summary>5) Extras si target == Situational</summary>
+    public HighLowOption highLow;
+    public WaifuStats situationalStat;
+    public TieBreaker tieBreaker;
+
+    /// <summary>6) Duración del efecto</summary>
     public Duration duration = Duration.None;
+
+    /// <summary>7) Etapa objetivo para UntilTheNext</summary>
     public Stages untilStage = Stages.None;
+
+    /// <summary>8) Número de turnos</summary>
     public int durationTurns = 1;
 
-    // 6) Filtros dinámicos
+    /// <summary>9) Filtros dinámicos</summary>
     [SerializeField]
     public List<MultiAttackFilterData> filters = new List<MultiAttackFilterData>();
 }

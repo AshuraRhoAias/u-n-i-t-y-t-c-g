@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum SendFilterType
@@ -8,7 +9,7 @@ public enum SendFilterType
     Element
 }
 
-[System.Serializable]
+[Serializable]
 public class SendFilter
 {
     public SendFilterType filterType;
@@ -17,7 +18,7 @@ public class SendFilter
     public ElementType elementFilter;
 }
 
-[System.Serializable]
+[Serializable]
 public class SendWaifuEffectData
 {
     public Location location;
