@@ -1,12 +1,17 @@
 using System;
 
-[AttributeUsage(AttributeTargets.Field, Inherited = false)]
-public class EffectDataFieldAttribute : Attribute
+namespace WaifuSummoner.Data
 {
-    public EffectType EffectType { get; }
-
-    public EffectDataFieldAttribute(EffectType effectType)
+    [AttributeUsage(AttributeTargets.Field)]
+    public class EffectDataFieldAttribute : Attribute
     {
-        EffectType = effectType;
+        public string DisplayName { get; set; }
+        public string Description { get; set; }
+
+        public EffectDataFieldAttribute(string displayName = "", string description = "")
+        {
+            DisplayName = displayName;
+            Description = description;
+        }
     }
 }

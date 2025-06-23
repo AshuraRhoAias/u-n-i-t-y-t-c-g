@@ -1,60 +1,53 @@
-﻿// Assets/Scripts/Data/WaifuData.cs
-using UnityEngine;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu(menuName = "Cards/Waifu Data", fileName = "NewWaifuData")]
-public class WaifuData : ScriptableObject
+namespace WaifuSummoner.Data
 {
-    public CardType cardType;
-    public Rarity rarity;           // ← Nuevo
-    public string waifuName;
-    public Realm reign;             // ← Nuevo
+    [CreateAssetMenu(fileName = "New Waifu Data", menuName = "Waifu Summoner/Waifu Data")]
+    public class WaifuData : ScriptableObject
+    {
+        [Header("Basic Info")]
+        public string waifuName;
+        public string description;
+        public Sprite artwork;
 
-    public SummonType summonType;   // Enums/SummonType.cs
-    public Role role;               // Enums/Roles.cs
-    public ElementType element;     // Enums/Elements.cs
+        [Header("Stats")]
+        public int attack;
+        public int level;
+        public int ambush;
 
-    public Sprite artwork;
+        [Header("Classification")]
+        public ElementType element;
+        public Role role;
+        public Realm realm;
+        public Rarity rarity;
 
-    [Range(0, 5)]
-    public int level;
+        [Header("Summon Info")]
+        public SummonType summonType;
+        public SummonCondition summonCondition;
 
-    [Range(0, 999)]
-    public int attack;
+        [Header("Effects")]
+        public List<WaifuEffectGroup> effectGroups = new List<WaifuEffectGroup>();
+    }
 
-    [Range(0, 999)]
-    public int ambush;
+    public enum TimesPerTurn
+    {
+        Once,
+        Twice,
+        Unlimited
+    }
 
-    // Ahora: grupos de efectos independientes
-    public List<WaifuEffectGroup> effectGroups = new List<WaifuEffectGroup>();
-}
+    [Serializable]
+    public class WaifuEffectGroup
+    {
+        public string groupName;
+        public Trigger trigger;
+        public TimesPerTurn timesPerTurn = TimesPerTurn.Once;
+        public EffectType effectType;
 
-// Define las opciones en el orden del popup: One, Two, Custom, Unlimited
-public enum TimesPerTurn
-{
-    One,       // una vez por turno
-    Two,       // dos veces por turno
-    Custom,    // número personalizado
-    Unlimited  // ilimitado mientras se cumpla el trigger
-}
-
-[Serializable]
-public class WaifuEffectGroup
-{
-    // Triggers del grupo
-    public List<Trigger> triggers = new List<Trigger> { Trigger.Action };
-
-    // Cuántas veces por turno puede activarse este grupo
-    public TimesPerTurn timesPerTurn = TimesPerTurn.One;
-
-    // Usado solo si timesPerTurn == Custom
-    public int customTimes = 1;
-
-    // Subefectos en este grupo
-    public List<EffectData> effects = new List<EffectData>();
-
-    // Descripción del grupo
-    [TextArea(2, 4)]
-    public string effectDescription;
+        [Header("Effect Data")]
+        // Aquí irían los datos específicos del efecto según el tipo
+        [SerializeField] public string effectDataJson; // Para serializar datos complejos
+    }
 }

@@ -1,40 +1,72 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum Trigger
+// EffectTrigger.cs
+namespace WaifuSummoner.Battle
 {
-    Action,
-    Ambush,
-    Strike,
-    Arrival,
-    Accessory,
-    Battle,
-    Victory,
-    Disenchant,
-    Mindlash,
-    Revenge,
-    Attack
+    public enum Trigger
+    {
+        None,
+        OnSummon,
+        OnDefeat,
+        OnAttack,
+        OnDamage,
+        OnTurnStart,
+        OnTurnEnd,
+        OnDraw,
+        Continuous
+    }
+
+    public static class TriggerDescriptions
+    {
+        public static string GetDescription(Trigger trigger)
+        {
+            return trigger switch
+            {
+                Trigger.OnSummon => "Activates when the card is summoned",
+                Trigger.OnDefeat => "Activates when the card is defeated",
+                Trigger.OnAttack => "Activates when the card attacks",
+                Trigger.OnDamage => "Activates when the card takes damage",
+                Trigger.OnTurnStart => "Activates at the start of turn",
+                Trigger.OnTurnEnd => "Activates at the end of turn",
+                Trigger.OnDraw => "Activates when drawn",
+                Trigger.Continuous => "Always active while card is in play",
+                _ => "Unknown trigger"
+            };
+        }
+    }
 }
 
-public static class TriggerDescriptions
+// EffectType.cs
+namespace WaifuSummoner.Battle
 {
-    private static readonly Dictionary<Trigger, string> descriptions = new Dictionary<Trigger, string>
+    public enum EffectType
     {
-        { Trigger.Action,      "Can be activated on your Summon Stage." },
-        { Trigger.Ambush,      "Active on enemy attack declaration." },
-        { Trigger.Strike,      "Active during the Strike Phase." },
-        { Trigger.Arrival,     "Active when the card is summoned." },
-        { Trigger.Accessory,   "Active when attached to a waifu." },
-        { Trigger.Battle,      "Active during the battle phase." },
-        { Trigger.Victory,     "Active when your waifu wins a battle." },
-        { Trigger.Disenchant,  "Active in response to an enchantment." },
-        { Trigger.Mindlash,    "Active in response to a waifu's effect." },
-        { Trigger.Revenge,     "Active when your waifu is defeated." },
-        { Trigger.Attack,      "Active when your waifu declares an attack." }
-    };
+        None,
+        ModifyStats,
+        DrawSearch,
+        Control,
+        Protection,
+        Stun,
+        Negate,
+        HealBurn,
+        SendHand,
+        SendWaifu,
+        DestroySend,
+        Recycle,
+        MultiAttacks,
+        SummonAid,
+        EnchantSummon,
+        ChangePosition,
+        Defeat
+    }
+}
 
-    public static string GetDescription(Trigger trigger)
+// SummonType.cs
+namespace WaifuSummoner.Battle
+{
+    public enum SummonType
     {
-        return descriptions.TryGetValue(trigger, out var desc) ? desc : "No description available.";
+        Normal,
+        Turn,
+        Seduction,
+        Special
     }
 }
