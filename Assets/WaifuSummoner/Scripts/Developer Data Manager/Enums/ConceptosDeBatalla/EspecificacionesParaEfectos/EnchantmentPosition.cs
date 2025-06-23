@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public enum EnchantmentPosition
+namespace WaifuSummoner.Effects
 {
-    Any,
-    FaceUp,
-    FaceDown,
+    public enum EnchantmentPosition
+    {
+        Any,
+        FaceUp,
+        FaceDown,
+    }
 }

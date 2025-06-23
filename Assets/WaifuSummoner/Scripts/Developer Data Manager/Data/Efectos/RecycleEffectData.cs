@@ -1,4 +1,4 @@
-// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/Efectos/RecycleEffectData.cs
+Ôªø// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/Efectos/RecycleEffectData.cs
 using System;
 
 namespace WaifuSummoner.Effects
@@ -9,22 +9,22 @@ namespace WaifuSummoner.Effects
         /// <summary>Tipo de carta a reciclar</summary>
         public CardType cardType = CardType.Waifu;
 
-        /// <summary>CÛmo seleccionar las cartas</summary>
+        /// <summary>C√≥mo seleccionar las cartas</summary>
         public Target target = Target.None;
 
-        /// <summary>De quÈ lado reciclar</summary>
+        /// <summary>De qu√© lado reciclar</summary>
         public TargetSide targetSide = TargetSide.User;
 
         /// <summary>Cantidad de cartas a reciclar</summary>
         public int amount = 1;
 
-        /// <summary>Desde quÈ ubicaciÛn reciclar</summary>
-        public Location fromLocation = Location.UserVoid;
+        /// <summary>Desde qu√© ubicaci√≥n reciclar</summary>
+        public Location fromLocation = Location.VoidZone;  // ‚Üê Cambiar de UserVoid a VoidZone
 
-        /// <summary>Hacia quÈ ubicaciÛn enviar</summary>
+        /// <summary>Hacia qu√© ubicaci√≥n enviar</summary>
         public Location toLocation = Location.UserDeck;
 
-        /// <summary>Si se baraja el mazo despuÈs del reciclaje</summary>
+        /// <summary>Si se baraja el mazo despu√©s del reciclaje</summary>
         public bool shuffleAfter = true;
     }
 }

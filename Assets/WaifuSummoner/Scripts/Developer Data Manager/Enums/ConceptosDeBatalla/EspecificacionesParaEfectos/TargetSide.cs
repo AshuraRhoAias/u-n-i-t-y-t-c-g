@@ -1,10 +1,11 @@
-public enum TargetSide
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    Both,
-    Enemy,
-    User,
+    public enum TargetSide
+    {
+        Both,
+        Enemy,
+        User,
+    }
 }
-
-
-
-

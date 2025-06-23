@@ -1,12 +1,17 @@
-public enum ProtectionTarget
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    AnyCard,
-    Waifu,
-    Enchantment,
-    EnchantmentMood,
-    Mood,
-    Opponent,
-    User,
-    OpponentAndUser,
+    public enum ProtectionTarget
+    {
+        None,
+        AnyCard,
+        Waifu,
+        Enchantment,
+        EnchantmentMood,
+        Mood,
+        Opponent,
+        User,
+        OpponentAndUser,
+    }
 }

@@ -1,5 +1,10 @@
-public enum FilterHandCardType
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    CardType
+    public enum FilterHandCardType
+    {
+        None,
+        CardType
+    }
 }

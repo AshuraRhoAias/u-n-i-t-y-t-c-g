@@ -1,17 +1,21 @@
-public enum Location
+using UnityEngine;
 
+namespace WaifuSummoner.Effects
 {
-    None,
-    OwnerHand,
-    UserHand,
-    OpponentHand,
-    OwnerDungeon,
-    OpponentDungeon,
-    AnyDungeon,
-    ShuffleToDeck,
-    TopOfDeck,
-    BottomOfDeck,
-    UserDeck,
-    OpponentDeck,
-    VoidZone,
+    public enum Location
+    {
+        None,
+        OwnerHand,
+        UserHand,
+        OpponentHand,
+        OwnerDungeon,
+        OpponentDungeon,
+        AnyDungeon,
+        ShuffleToDeck,
+        TopOfDeck,
+        BottomOfDeck,
+        UserDeck,
+        OpponentDeck,
+        VoidZone,
+    }
 }

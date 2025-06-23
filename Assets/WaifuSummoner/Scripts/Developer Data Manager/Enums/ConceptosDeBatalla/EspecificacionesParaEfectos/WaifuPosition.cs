@@ -1,8 +1,13 @@
-public enum WaifuPosition
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    Attack,
-    AmbushFacedown,
-    AmbushFaceup,
-    Switch,
-    Select,
+    public enum WaifuPosition
+    {
+        Attack,
+        AmbushFacedown,
+        AmbushFaceup,
+        Switch,
+        Select,
+    }
 }

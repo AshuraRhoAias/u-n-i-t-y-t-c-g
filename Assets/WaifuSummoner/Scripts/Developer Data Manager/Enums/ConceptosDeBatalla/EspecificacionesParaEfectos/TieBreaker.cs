@@ -1,7 +1,12 @@
-public enum TieBreaker
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    All,
-    Random,
-    Select,
-    EnemySelects
+    public enum TieBreaker
+    {
+        All,
+        Random,
+        Select,
+        EnemySelects
+    }
 }

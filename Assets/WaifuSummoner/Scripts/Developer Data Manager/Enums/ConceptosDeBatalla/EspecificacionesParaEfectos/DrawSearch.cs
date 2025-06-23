@@ -1,6 +1,11 @@
-public enum DrawSearch
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    Draw,
-    Search,
+    public enum DrawSearch
+    {
+        None,
+        Draw,
+        Search,
+    }
 }

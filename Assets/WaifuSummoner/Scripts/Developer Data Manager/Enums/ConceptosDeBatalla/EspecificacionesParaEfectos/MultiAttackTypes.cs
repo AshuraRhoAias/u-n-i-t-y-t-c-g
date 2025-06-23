@@ -1,7 +1,12 @@
-public enum MultiAttackTypes
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    NumberOfTimes,
-    NumberVsWaifus,
-    AllWaifus,
+    public enum MultiAttackTypes
+    {
+        None,
+        NumberOfTimes,
+        NumberVsWaifus,
+        AllWaifus,
+    }
 }

@@ -2,7 +2,6 @@
 // DestroySendEffectData.cs - Versión Corregida
 // ==================================================
 using System;
-using System.Diagnostics;
 using UnityEngine;
 using WaifuSummoner.Effects;
 
@@ -56,7 +55,6 @@ namespace WaifuSummoner.GameLogic
                     // Lógica para destruir (enviar al void)
                     DestroyCard();
                     break;
-
                 case DestroySendAction.Send:
                     // Lógica para enviar a ubicación específica
                     SendCardToLocation(destroySendEffect.location);
@@ -91,7 +89,6 @@ namespace WaifuSummoner.GameLogic
                 case Duration.ForNumberOfYourTurns:
                     Debug.Log($"Effect lasts for {destroySendEffect.durationTurns} turns");
                     break;
-
                 case Duration.UntilTheNext:
                     Debug.Log($"Effect lasts until {destroySendEffect.untilStage} (x{destroySendEffect.stageCount})");
                     break;

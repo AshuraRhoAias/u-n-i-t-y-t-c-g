@@ -27,6 +27,31 @@ namespace WaifuSummoner.Effects
         public StatType situationalStat;
         public TieBreaker situationalTieBreaker;
     }
+
+    /// <summary>
+    /// Clase genérica para filtros de efectos (añadir si no existe)
+    /// </summary>
+    [System.Serializable]
+    public class EffectFilterData
+    {
+        public EffectFilterType filterType;
+        public SummonCondition summonCondition;
+        public Role roleFilter;
+        public ElementType elementFilter;
+        // Añadir si es necesario:
+        // public RealmType reignFilter;
+    }
+
+    /// <summary>
+    /// Tipos de filtro para efectos
+    /// </summary>
+    public enum EffectFilterType
+    {
+        SummonCondition,
+        Role,
+        Element,
+        Reign
+    }
 }
 
 // ==================================================
@@ -51,7 +76,7 @@ namespace WaifuSummoner.Effects
     public class DefeatFilter
     {
         public DefeatFilterType filterType;
-        public SummonCondition summonConditionFilter;
+        public SummonCondition summonConditionFilter;  // ← Nombre correcto
         public Role roleFilter;
         public ElementType elementFilter;
     }
@@ -75,7 +100,7 @@ namespace WaifuSummoner.Effects
 }
 
 // ==================================================
-// EJEMPLO DE USO
+// EJEMPLO DE USO CORREGIDO
 // ==================================================
 namespace WaifuSummoner.GameLogic
 {
@@ -92,7 +117,7 @@ namespace WaifuSummoner.GameLogic
                 {
                     case EffectFilterType.SummonCondition:
                         // Procesar filtro de SummonCondition
-                        var condition = filter.summonCondition;
+                        var condition = filter.summonCondition;  // ← Propiedad correcta
                         break;
                     case EffectFilterType.Role:
                         // Procesar filtro de Role
@@ -104,7 +129,7 @@ namespace WaifuSummoner.GameLogic
                         break;
                     case EffectFilterType.Reign:
                         // Procesar filtro de Reign (si es necesario)
-                        var reign = filter.reignFilter;
+                        // var reign = filter.reignFilter;  // ← Comentar si no existe
                         break;
                 }
             }

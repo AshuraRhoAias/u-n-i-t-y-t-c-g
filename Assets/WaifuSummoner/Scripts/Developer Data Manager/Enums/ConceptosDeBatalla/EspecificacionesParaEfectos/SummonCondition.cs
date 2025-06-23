@@ -1,6 +1,11 @@
-public enum SummonCondition
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    LibidoSummon,
-    EnchantmentSummon,
-    SeductionSummon
+    public enum SummonCondition
+    {
+        LibidoSummon,
+        EnchantmentSummon,
+        SeductionSummon
+    }
 }

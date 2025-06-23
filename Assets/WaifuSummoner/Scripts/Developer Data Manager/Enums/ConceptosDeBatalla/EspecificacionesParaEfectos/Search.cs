@@ -1,13 +1,18 @@
-public enum Search
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    UserDeck,
-    OpponentDeck,
-    BothDecks,
-    UserDungeon,
-    OpponentDungeon,
-    BothDungeons,
-    OpponentDeckAndDungeon,
-    UserDeckAndDungeon,
-    BothDeckAndDungeon,
+    public enum Search
+    {
+        None,
+        UserDeck,
+        OpponentDeck,
+        BothDecks,
+        UserDungeon,
+        OpponentDungeon,
+        BothDungeons,
+        OpponentDeckAndDungeon,
+        UserDeckAndDungeon,
+        BothDeckAndDungeon,
+    }
 }

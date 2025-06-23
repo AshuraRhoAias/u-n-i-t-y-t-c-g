@@ -1,9 +1,14 @@
-public enum Stages
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    DrawStage,
-    StrikeStage,
-    ActionStage,
-    BattleStage,
-    EndingStage,
+    public enum Stages
+    {
+        None,
+        DrawStage,
+        StrikeStage,
+        ActionStage,
+        BattleStage,
+        EndingStage,
+    }
 }

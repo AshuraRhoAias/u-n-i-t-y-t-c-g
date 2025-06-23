@@ -1,41 +1,33 @@
 using UnityEngine;
-using System.Collections.Generic;
 
-public enum ElementType
+namespace WaifuSummoner.Cards
 {
-    Solar,       // Solar
-    Lunar,       // Lunar
-    Fire,        // Fuego
-    Water,       // Agua
-    Wind,        // Viento
-    Earth,       // Tierra
-    Ice,         // Hielo
-    Lightning,   // Trueno
-    Eclypse,     // Maldad
-    Stellar      // Bien
-}
-
-public static class ElementTypeDescriptions
-{
-    public static readonly Dictionary<ElementType, string> Descriptions = new Dictionary<ElementType, string>
+    public enum ElementType
     {
-        { ElementType.Solar,      "Shine so bright that even shadows find purpose." },
-        { ElementType.Lunar,      "Reflection shapes the world in quiet grace." },
-        { ElementType.Stellar,    "The stars call; only the worthy listen." },
-        { ElementType.Fire,       "Desire feeds both creation and destruction." },
-        { ElementType.Water,      "Become what is needed, as water becomes all things." },
-        { ElementType.Wind,       "Freedom belongs to those who cannot be caught." },
-        { ElementType.Earth,      "Endure the weight of all things — and remain." },
-        { ElementType.Ice,        "Power held back is the sharpest blade." },
-        { ElementType.Lightning,  "Doubt ends where the strike begins." },
-        { ElementType.Eclypse,    "An Eclipse does not hide the light — it devours hope itself." }
-    };
+        Fire,
+        Water,
+        Earth,
+        Air,
+        Dark,
+        Light,
+        Neutral
+    }
 
-    /// <summary>
-    /// Returns the description of the given ElementType.
-    /// </summary>
-    public static string GetDescription(ElementType element)
+    public static class ElementTypeDescriptions
     {
-        return Descriptions.TryGetValue(element, out var description) ? description : "No description available.";
+        public static string GetDescription(ElementType element)
+        {
+            return element switch
+            {
+                ElementType.Fire => "Fire element - Aggressive and powerful",
+                ElementType.Water => "Water element - Flowing and adaptable",
+                ElementType.Earth => "Earth element - Stable and defensive",
+                ElementType.Air => "Air element - Swift and elusive",
+                ElementType.Dark => "Dark element - Mysterious and forbidden",
+                ElementType.Light => "Light element - Pure and healing",
+                ElementType.Neutral => "Neutral element - Balanced",
+                _ => "Unknown element"
+            };
+        }
     }
 }

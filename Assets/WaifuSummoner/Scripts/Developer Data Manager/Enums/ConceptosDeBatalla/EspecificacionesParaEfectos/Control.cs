@@ -1,7 +1,12 @@
-public enum Control
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    ChangeControl,
-    ReturnToOwner,
-    RemoveFromOwner,
+    public enum Control
+    {
+        None,
+        ChangeControl,
+        ReturnToOwner,
+        RemoveFromOwner,
+    }
 }

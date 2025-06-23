@@ -1,7 +1,12 @@
-// Assets/Scripts/Enums/HealBurnAction.cs
-public enum IncreaseDecrease
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    Increase,
-    Decrease
+    // Assets/Scripts/Enums/HealBurnAction.cs
+    public enum IncreaseDecrease
+    {
+        None,
+        Increase,
+        Decrease
+    }
 }

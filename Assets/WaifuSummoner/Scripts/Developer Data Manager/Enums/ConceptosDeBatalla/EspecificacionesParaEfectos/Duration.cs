@@ -1,10 +1,15 @@
-public enum Duration
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    None,
-    ThisTurn,
-    UntilTheNext,
-    ForNumberTurns,
-    ForNumberOfYourTurns,
-    WhileThisCardFaceup,
-    Permanent,
+    public enum Duration
+    {
+        None,
+        ThisTurn,
+        UntilTheNext,
+        ForNumberTurns,
+        ForNumberOfYourTurns,
+        WhileThisCardFaceup,
+        Permanent,
+    }
 }

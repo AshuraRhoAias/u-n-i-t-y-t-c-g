@@ -1,8 +1,13 @@
-public enum FieldCardType
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    Any,
-    Waifu,
-    Enchantment,
-    Mood,
-    EnchantmentMood,
+    public enum FieldCardType
+    {
+        Any,
+        Waifu,
+        Enchantment,
+        Mood,
+        EnchantmentMood,
+    }
 }

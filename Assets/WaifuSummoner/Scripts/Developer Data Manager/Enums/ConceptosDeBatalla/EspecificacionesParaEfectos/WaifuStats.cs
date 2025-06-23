@@ -1,6 +1,11 @@
-public enum WaifuStats
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    Attack,
-    AP,
-    Level
+    public enum WaifuStats
+    {
+        Attack,
+        AP,
+        Level
+    }
 }

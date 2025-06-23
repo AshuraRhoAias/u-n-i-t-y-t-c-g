@@ -1,6 +1,11 @@
-public enum StatType
+using UnityEngine;
+
+namespace WaifuSummoner.Effects
 {
-    Attack,
-    Ambush,
-    Level
+    public enum StatType
+    {
+        Attack,
+        Ambush,
+        Level
+    }
 }

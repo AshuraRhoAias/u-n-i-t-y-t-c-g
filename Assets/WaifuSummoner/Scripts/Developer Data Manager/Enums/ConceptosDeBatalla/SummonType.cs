@@ -1,7 +1,12 @@
-﻿public enum SummonType
+﻿using UnityEngine;
+
+namespace WaifuSummoner.Battle
 {
-    None,           // Para nivel 0
-    Reinforcement,  // 💎
-    Hero,           // 🛡️
-    Villain         // 😈
+    public enum WaifuSummonType  // Cambiar nombre para diferenciarlo
+    {
+        None,           // Para nivel 0
+        Reinforcement,  // 💎
+        Hero,           // 🛡️
+        Villain         // 😈
+    }
 }
