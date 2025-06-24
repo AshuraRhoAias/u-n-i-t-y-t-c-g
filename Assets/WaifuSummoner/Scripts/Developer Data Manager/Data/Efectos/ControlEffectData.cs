@@ -1,38 +1,13 @@
-﻿using System;
+﻿// Assets/WaifuSummoner/Scripts/Developer Data Manager/Data/Efectos/ControlEffectData.cs
 using System.Collections.Generic;
 using UnityEngine;
-using WaifuSummoner.Effects;
 
 namespace WaifuSummoner.Effects
 {
     /// <summary>
-    /// Tipos de filtro disponibles para Control.
-    /// </summary>
-    public enum ControlFilterType
-    {
-        SummonCondition,
-        Role,
-        Element,
-        Reign
-    }
-
-    /// <summary>
-    /// Datos de un único filtro de Control.
-    /// </summary>
-    [Serializable]
-    public class ControlFilterData
-    {
-        public ControlFilterType filterType;
-        public SummonCondition summonCondition;
-        public Role roleFilter;
-        public ElementType elementFilter;
-        public Realm reignFilter;
-    }
-
-    /// <summary>
     /// Datos para el efecto "Control", con flujo condicional y filtros dinámicos.
     /// </summary>
-    [Serializable]
+    [System.Serializable]
     public class ControlEffectData
     {
         /// <summary>1) Tipo de acción de Control (None/…)</summary>
@@ -64,6 +39,6 @@ namespace WaifuSummoner.Effects
 
         /// <summary>8) Filtros dinámicos usando la clase genérica.</summary>
         [SerializeField]
-        public List<ControlFilterData> filters = new List<ControlFilterData>();
+        public List<EffectFilterData> filters = new List<EffectFilterData>();
     }
 }
